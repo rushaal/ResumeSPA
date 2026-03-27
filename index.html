@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Rushal Maksane — Senior Engineering Lead & Project Manager with 19+ years delivering at scale.">
+<title>Rushal Maksane — Engineering Lead & Project Manager</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+/* ── TOKENS ── */
+:root {
+  --bg:          #F5F5F7;
+  --bg-pure:     #FFFFFF;
+  --surface:     #FFFFFF;
+  --surface-2:   #F5F5F7;
+  --border:      #D2D2D7;
+  --border-hover:#AEAEB2;
+  --ink:         #1D1D1F;
+  --ink-2:       #48484A;
+  --ink-3:       #6E6E73;
+  --ink-4:       #AEAEB2;
+  --accent:      #0066CC;
+  --accent-dim:  rgba(0,102,204,0.08);
+  --accent-mid:  rgba(0,102,204,0.18);
+  --amber:       #B45309;
+  --amber-dim:   rgba(180,83,9,0.09);
+  --teams:       #4B4EAB;
+  --teams-dim:   rgba(75,78,171,0.1);
+  --radius-sm:   8px;
+  --radius-md:   14px;
+  --radius-lg:   22px;
+  --font-display:'DM Serif Display', Georgia, serif;
+  --font-body:   'DM Sans', -apple-system, sans-serif;
+  --ease-out:    cubic-bezier(0.16,1,0.3,1);
+  --t:           0.3s var(--ease-out);
+}
+
+*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; -webkit-font-smoothing: antialiased; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-weight: 400; line-height: 1.6; overflow-x: hidden; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+
+/* subtle radial tint — very light, above-fold only */
+body::before {
+  content: '';
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background: radial-gradient(ellipse 70% 45% at 50% -5%, rgba(0,102,204,0.05) 0%, transparent 65%);
+}
+
+.container { max-width: 960px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+section { padding: 96px 0; }
+section + section { padding-top: 0; }
+.divider { height: 1px; background: var(--border); }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 0 24px; height: 60px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(245,245,247,0.88);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid var(--border);
+  transition: border-color var(--t);
+}
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.nav-logo span { color: var(--accent); font-style: italic; }
+.nav-links { display: flex; gap: 28px; align-items: center; }
+.nav-links a {
+  font-size: 0.78rem; font-weight: 500; color: var(--ink-3);
+  letter-spacing: 0.05em; text-transform: uppercase;
+  transition: color var(--t);
+}
+.nav-links a:hover { color: var(--ink); }
+.nav-cta {
+  display: inline-flex !important; align-items: center; gap: 7px;
+  padding: 7px 15px; border-radius: 980px;
+  background: var(--ink) !important;
+  color: #fff !important;
+  font-size: 0.78rem !important; font-weight: 500 !important;
+  text-transform: none !important; letter-spacing: 0 !important;
+  transition: background var(--t), transform var(--t) !important;
+}
+.nav-cta:hover { background: #000 !important; transform: scale(1.03) !important; }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+.hamburger span { width: 22px; height: 1.5px; background: var(--ink-3); display: block; }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
+@keyframes pulse  { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:0.45; transform:scale(0.75); } }
+@keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+
+/* ── HERO ── */
+#hero { padding: 148px 0 96px; }
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: 56px;
+  align-items: center;
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-bottom: 22px;
+  font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--accent);
+  animation: fadeUp 0.7s var(--ease-out) 0.1s both;
+}
+.eyebrow-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent); animation: pulse 2s ease infinite;
+}
+h1 {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  font-weight: 400;
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  margin-bottom: 8px;
+  color: var(--ink);
+  animation: fadeUp 0.8s var(--ease-out) 0.2s both;
+}
+.hero-title-line { display: block; }
+.hero-title-line.accent { font-style: italic; color: var(--accent); }
+.hero-role {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-weight: 400;
+  color: var(--ink-3);
+  letter-spacing: -0.01em;
+  margin-bottom: 28px;
+  animation: fadeUp 0.8s var(--ease-out) 0.35s both;
+}
+.hero-tagline {
+  max-width: 520px;
+  font-size: 1rem; font-weight: 300;
+  color: var(--ink-3); line-height: 1.75;
+  margin-bottom: 44px;
+  animation: fadeUp 0.8s var(--ease-out) 0.45s both;
+}
+.hero-actions {
+  display: flex; gap: 12px; flex-wrap: wrap;
+  animation: fadeUp 0.8s var(--ease-out) 0.55s both;
+}
+.hero-stats {
+  display: flex; gap: 44px; margin-top: 64px; padding-top: 36px;
+  border-top: 1px solid var(--border); flex-wrap: wrap;
+  animation: fadeUp 0.8s var(--ease-out) 0.7s both;
+}
+.stat-number {
+  font-family: var(--font-display);
+  font-size: 2rem; font-weight: 400;
+  letter-spacing: -0.04em; line-height: 1;
+  color: var(--ink);
+}
+.stat-number span { color: var(--accent); font-style: italic; }
+.stat-label { font-size: 0.75rem; color: var(--ink-4); margin-top: 5px; }
+
+/* PHOTO ZONE */
+.hero-photo {
+  animation: fadeUp 0.9s var(--ease-out) 0.3s both;
+  display: flex; align-items: flex-start; justify-content: center;
+}
+.photo-frame {
+  width: 240px; height: 280px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: linear-gradient(135deg, #EFEFEF 0%, #E8E8EA 100%);
+  position: relative; overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04);
+  display: flex; align-items: center; justify-content: center;
+}
+.monogram {
+  font-family: var(--font-display);
+  font-size: 5rem;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+  opacity: 0.12;
+  line-height: 1;
+  z-index: 1;
+  user-select: none;
+}
+.monogram span { color: var(--accent); opacity: 1; font-style: italic; }
+/* subtle gradient overlay for depth */
+.photo-frame::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 80% 70% at 50% 40%, rgba(0,102,204,0.06) 0%, transparent 70%);
+  z-index: 0;
+}
+/* When a real photo is placed, wrap an <img> inside .photo-frame and it will just fill */
+.photo-frame img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: top center;
+  border-radius: var(--radius-lg);
+  z-index: 2;
+}
+
+/* ── BUTTONS ── */
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 13px 26px; border-radius: 980px;
+  background: var(--ink); color: #fff;
+  font-family: var(--font-body); font-size: 0.88rem; font-weight: 500;
+  transition: background var(--t), transform var(--t), box-shadow var(--t);
+}
+.btn-primary:hover { background: #000; transform: translateY(-1px); box-shadow: 0 6px 24px rgba(0,0,0,0.15); }
+.btn-secondary {
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 13px 26px; border-radius: 980px;
+  background: transparent; border: 1.5px solid var(--border);
+  color: var(--ink-3);
+  font-family: var(--font-body); font-size: 0.88rem; font-weight: 500;
+  transition: var(--t);
+}
+.btn-secondary:hover { color: var(--ink); border-color: var(--ink-3); background: var(--surface); }
+
+/* ── SECTION HEADER ── */
+.section-header { margin-bottom: 52px; }
+.section-eyebrow {
+  font-size: 0.68rem; font-weight: 600; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 10px;
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 400; letter-spacing: -0.02em; line-height: 1.12;
+  color: var(--ink);
+}
+.section-title em { font-style: italic; color: var(--ink-3); }
+
+/* ── ABOUT ── */
+#about { padding-top: 0; }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+.about-body p {
+  font-size: 0.97rem; color: var(--ink-3); line-height: 1.82;
+  font-weight: 300; margin-bottom: 20px;
+}
+.about-body p:last-child { margin-bottom: 0; }
+.about-body strong { color: var(--ink); font-weight: 500; }
+.about-sidebar { display: flex; flex-direction: column; gap: 12px; }
+.info-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-md); padding: 18px 22px;
+  display: flex; align-items: flex-start; gap: 14px;
+  transition: border-color var(--t), box-shadow var(--t);
+}
+.info-card:hover { border-color: var(--border-hover); box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+.info-icon {
+  width: 34px; height: 34px; border-radius: var(--radius-sm);
+  background: var(--accent-dim); border: 1px solid rgba(0,102,204,0.15);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; color: var(--accent);
+}
+.info-icon--top { margin-top: 2px; }
+.info-label { font-size: 0.67rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-4); margin-bottom: 3px; }
+.info-value { font-size: 0.86rem; color: var(--ink-2); }
+.info-card--list { align-items: flex-start; }
+.achievement-pills { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.achievement-pills li { display: flex; align-items: flex-start; gap: 8px; font-size: 0.8rem; color: var(--ink-3); line-height: 1.55; font-weight: 300; }
+.achievement-pills li strong { color: var(--ink); font-weight: 500; }
+.pill-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); flex-shrink: 0; margin-top: 6px; }
+.ai-tool-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.ai-tag {
+  padding: 3px 10px; border-radius: 980px; font-size: 0.73rem; font-weight: 500;
+  background: var(--accent-dim); border: 1px solid rgba(0,102,204,0.18);
+  color: var(--accent); white-space: nowrap;
+}
+
+/* ── SKILLS ── */
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
+.skill-group {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-md); padding: 22px;
+  transition: border-color var(--t), transform var(--t), box-shadow var(--t);
+}
+.skill-group:hover { border-color: var(--border-hover); transform: translateY(-2px); box-shadow: 0 6px 24px rgba(0,0,0,0.07); }
+.skill-group-label {
+  font-size: 0.66rem; font-weight: 600; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--ink-4); margin-bottom: 14px;
+  display: flex; align-items: center; gap: 8px;
+}
+.skill-group-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.skill-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+.skill-tag {
+  padding: 5px 11px; border-radius: 980px; font-size: 0.76rem;
+  background: var(--surface-2); border: 1px solid var(--border);
+  color: var(--ink-3); white-space: nowrap; transition: var(--t);
+}
+.skill-tag.accent-tag {
+  background: var(--accent-dim); border-color: rgba(0,102,204,0.2); color: var(--accent);
+}
+.skill-tag:hover { border-color: var(--border-hover); color: var(--ink); }
+
+/* ── TIMELINE ── */
+.timeline { position: relative; padding-left: 32px; }
+.timeline::before {
+  content: ''; position: absolute; left: 0; top: 8px; bottom: 8px;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--accent), var(--border), transparent);
+}
+.timeline-item { position: relative; margin-bottom: 56px; }
+.timeline-item:last-child { margin-bottom: 0; }
+.timeline-dot {
+  position: absolute; left: -36px; top: 6px;
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--bg-pure); border: 2px solid var(--accent);
+  box-shadow: 0 0 0 4px rgba(0,102,204,0.1);
+}
+.timeline-item:not(:first-child) .timeline-dot { border-color: var(--border-hover); box-shadow: none; }
+.timeline-meta {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  margin-bottom: 6px; flex-wrap: wrap; gap: 8px;
+}
+.timeline-period { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.05em; color: var(--ink-4); font-family: var(--font-body); }
+.timeline-badge {
+  padding: 3px 10px; border-radius: 980px;
+  font-size: 0.66rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+}
+.badge-current { background: var(--accent-dim); color: var(--accent); border: 1px solid rgba(0,102,204,0.2); }
+.badge-past { background: var(--surface-2); color: var(--ink-4); border: 1px solid var(--border); }
+.timeline-role {
+  font-family: var(--font-display);
+  font-size: 1.2rem; font-weight: 400;
+  letter-spacing: -0.01em; margin-bottom: 3px; color: var(--ink);
+}
+.timeline-company { font-size: 0.86rem; color: var(--accent); margin-bottom: 20px; font-weight: 400; }
+.timeline-achievements { display: flex; flex-direction: column; gap: 12px; }
+.achievement { display: flex; gap: 14px; align-items: flex-start; }
+.achievement-marker {
+  width: 20px; height: 20px; border-radius: var(--radius-sm);
+  background: var(--surface-2); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 1px; font-size: 0.5rem; color: var(--accent);
+}
+.achievement-text { font-size: 0.87rem; color: var(--ink-3); line-height: 1.7; font-weight: 300; }
+.achievement-text strong { color: var(--ink); font-weight: 500; }
+
+/* ── IMPACT ── */
+.impact-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px;
+  background: var(--border); border-radius: var(--radius-lg);
+  overflow: hidden; border: 1px solid var(--border);
+}
+.impact-card {
+  background: var(--surface); padding: 32px 26px;
+  transition: background var(--t); cursor: pointer;
+}
+.impact-card:hover, .impact-card.active { background: var(--surface-2); }
+.impact-card.active { box-shadow: inset 0 -2px 0 var(--accent); }
+.impact-number {
+  font-family: var(--font-display);
+  font-size: 2.7rem; font-weight: 400;
+  letter-spacing: -0.04em; line-height: 1; margin-bottom: 8px; color: var(--ink);
+}
+.impact-accent { color: var(--accent); font-style: italic; }
+.impact-desc { font-size: 0.8rem; color: var(--ink-3); line-height: 1.55; font-weight: 300; }
+
+.impact-hint {
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  margin-top: 14px; font-size: 0.72rem; color: var(--ink-4);
+  letter-spacing: 0.04em; transition: opacity 0.3s; cursor: pointer;
+}
+.impact-hint:hover { color: var(--ink-3); }
+.impact-hint.hidden { opacity: 0; pointer-events: none; }
+
+.achievements-panel { max-height: 0; overflow: hidden; transition: max-height 0.55s var(--ease-out), opacity 0.4s ease; opacity: 0; }
+.achievements-panel.open { max-height: 600px; opacity: 1; }
+.achievements-panel-inner {
+  margin-top: 20px; background: var(--surface);
+  border: 1px solid rgba(0,102,204,0.18);
+  border-radius: var(--radius-lg); padding: 32px; position: relative;
+}
+.achievements-panel-inner::before {
+  content: ''; position: absolute; top: -1px; left: 15%; right: 15%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--accent), transparent);
+}
+.ap-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 22px; }
+.ap-title {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--font-display); font-size: 1rem; font-weight: 400;
+  color: var(--accent); letter-spacing: -0.01em;
+}
+.ap-close {
+  width: 30px; height: 30px; border-radius: var(--radius-sm);
+  background: var(--surface-2); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--ink-4); cursor: pointer; transition: var(--t);
+}
+.ap-close:hover { border-color: var(--border-hover); color: var(--ink); }
+.ap-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; }
+.ap-item {
+  display: flex; gap: 11px; align-items: flex-start;
+  font-size: 0.84rem; color: var(--ink-3); line-height: 1.6; font-weight: 300;
+}
+.ap-item strong { color: var(--ink); font-weight: 500; }
+.ap-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; margin-top: 7px; }
+
+/* ── EDU / CERTS ── */
+.edu-certs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.edu-card, .cert-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-md); padding: 26px;
+  transition: border-color var(--t), transform var(--t), box-shadow var(--t);
+}
+.edu-card:hover, .cert-card:hover {
+  border-color: var(--border-hover); transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.07);
+}
+.card-eyebrow { font-size: 0.66rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-4); margin-bottom: 10px; }
+.card-title { font-family: var(--font-display); font-size: 1rem; font-weight: 400; margin-bottom: 4px; letter-spacing: -0.01em; color: var(--ink); }
+.card-sub { font-size: 0.8rem; color: var(--ink-3); font-weight: 300; margin-bottom: 12px; }
+.card-year { font-size: 0.73rem; color: var(--accent); font-weight: 500; }
+.cert-badge-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.cert-icon {
+  width: 38px; height: 38px; border-radius: var(--radius-sm);
+  background: var(--accent-dim); border: 1px solid rgba(0,102,204,0.2);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--accent); flex-shrink: 0;
+}
+
+/* ── CONTACT ── */
+#contact { padding-bottom: 120px; }
+.contact-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 64px;
+  text-align: center; position: relative; overflow: hidden;
+}
+.contact-card::before {
+  content: ''; position: absolute; top: -1px; left: 20%; right: 20%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--accent), transparent);
+}
+.contact-card::after {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 65% 50% at 50% 0%, rgba(0,102,204,0.04) 0%, transparent 60%);
+  pointer-events: none;
+}
+.contact-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.3rem);
+  font-weight: 400; letter-spacing: -0.02em; margin-bottom: 14px; color: var(--ink);
+}
+.contact-sub {
+  font-size: 0.95rem; color: var(--ink-3); font-weight: 300;
+  max-width: 440px; margin: 0 auto 38px; line-height: 1.75;
+}
+.contact-links {
+  display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; position: relative; z-index: 1;
+}
+.contact-link {
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 12px 20px; border-radius: 980px;
+  font-size: 0.86rem; font-weight: 500; transition: var(--t);
+}
+.contact-link.primary { background: var(--ink); color: #fff; }
+.contact-link.primary:hover { background: #000; transform: translateY(-2px); box-shadow: 0 6px 24px rgba(0,0,0,0.14); }
+.contact-link.secondary { background: transparent; border: 1.5px solid var(--border); color: var(--ink-3); }
+.contact-link.secondary:hover { color: var(--ink); border-color: var(--ink-3); background: var(--surface-2); }
+.contact-link.teams { background: var(--teams-dim); border: 1px solid rgba(75,78,171,0.3); color: var(--teams); }
+.contact-link.teams:hover { background: rgba(75,78,171,0.16); border-color: rgba(75,78,171,0.45); transform: translateY(-1px); }
+.contact-link.linkedin { background: rgba(10,102,194,0.08); border: 1px solid rgba(10,102,194,0.25); color: #0A66C2; }
+.contact-link.linkedin:hover { background: rgba(10,102,194,0.15); border-color: rgba(10,102,194,0.4); transform: translateY(-1px); }
+
+/* ── FOOTER ── */
+footer { border-top: 1px solid var(--border); padding: 24px; text-align: center; }
+.footer-text { font-size: 0.73rem; color: var(--ink-4); }
+.footer-text span { color: var(--accent); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .impact-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  nav.menu-open .nav-links {
+    display: flex; flex-direction: column;
+    position: absolute; top: 60px; left: 0; right: 0;
+    background: rgba(245,245,247,0.97);
+    border-bottom: 1px solid var(--border);
+    padding: 24px; gap: 20px;
+    backdrop-filter: blur(20px);
+  }
+  section { padding: 64px 0; }
+  #hero { padding: 120px 0 64px; }
+  .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+  .hero-photo { order: -1; }
+  .photo-frame { width: 160px; height: 190px; margin: 0 auto; }
+  .monogram { font-size: 3.5rem; }
+  .hero-stats { gap: 28px; }
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .edu-certs-grid { grid-template-columns: 1fr; }
+  .contact-card { padding: 40px 24px; }
+  .timeline { padding-left: 24px; }
+  .timeline-dot { left: -28px; }
+  .ap-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .impact-grid { grid-template-columns: 1fr 1fr; }
+  .hero-actions { flex-direction: column; }
+}
+
+/* ── PRINT ── */
+@media print {
+  body { background: #fff; color: #111; }
+  body::before { display: none; }
+  nav, #contact, footer { display: none; }
+  section { padding: 28px 0; page-break-inside: avoid; }
+  .info-card,.skill-group,.timeline-item,.impact-card,.edu-card,.cert-card { border: 1px solid #ddd !important; background: #fff !important; }
+  .section-title,.timeline-role,.card-title,.impact-number,.stat-number,h1 { color: #111 !important; }
+  .section-eyebrow,.card-year,.timeline-company { color: #0052a3 !important; }
+  .hero-title-line.accent,.stat-number span,.impact-accent { color: #0052a3 !important; }
+  .about-body p,.achievement-text,.info-value,.impact-desc,.card-sub { color: #444 !important; }
+  .photo-frame { background: #eee !important; }
+  .monogram { opacity: 0.2 !important; }
+  .photo-frame::before,.photo-frame::after { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-logo">RM<span>.</span></div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#impact">Impact</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact" class="nav-cta">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      Let's Talk
+    </a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-eyebrow"><span class="eyebrow-dot"></span>Open to Senior PM &amp; Engineering Lead Roles</div>
+        <h1>
+          <span class="hero-title-line">Rushal</span>
+          <span class="hero-title-line accent">Maksane</span>
+        </h1>
+        <div class="hero-role">Senior Engineering Lead &amp; Project Manager</div>
+        <p class="hero-tagline">19 years building and shipping complex software at scale. 12+ years owning end-to-end delivery in U.S. healthcare interoperability — from architecture to production, and every stakeholder conversation in between.</p>
+        <div class="hero-actions">
+          <a id="heroEmail" href="#" class="btn-primary">
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M1 3.5A1.5 1.5 0 012.5 2h10A1.5 1.5 0 0114 3.5v8a1.5 1.5 0 01-1.5 1.5h-10A1.5 1.5 0 011 11.5v-8zm1.5-.5a.5.5 0 00-.5.5L7.5 8 13 3.5a.5.5 0 00-.5-.5h-10zM13 4.73L8.22 8.75a1 1 0 01-1.44 0L2 4.73V11.5a.5.5 0 00.5.5h10a.5.5 0 00.5-.5V4.73z" fill="currentColor"/></svg>
+            Get in Touch
+          </a>
+          <a href="tel:9019197711" class="btn-secondary">
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M5.07 2.29a1 1 0 00-1.41.05L2.22 3.83C1.47 4.71 1.5 6 2.27 6.93c.77.92 2 2.16 3.5 3.5.92.77 2.21.8 3.1.05l1.5-1.44a1 1 0 00.05-1.41L9 6.2a1 1 0 00-1.41.05L7 6.85C6.5 6.39 5.92 5.79 5.43 5.2L6.04 4.6a1 1 0 00.05-1.41L5.07 2.3z" stroke="currentColor" stroke-width="1.2"/></svg>
+            +91 9019 197 711
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item"><div class="stat-number">19<span>+</span></div><div class="stat-label">Years in Software Engineering</div></div>
+          <div class="stat-item"><div class="stat-number">12<span>+</span></div><div class="stat-label">Years in U.S. Healthcare IT</div></div>
+          <div class="stat-item"><div class="stat-number">10<span>+</span></div><div class="stat-label">Engineers Led Concurrently</div></div>
+        </div>
+      </div>
+
+      <div class="hero-photo">
+        <div class="photo-frame">
+          <!-- Drop an <img> here to replace the monogram -->
+          <div class="monogram">R<span>M</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-body">
+        <div class="section-header" style="margin-bottom:28px;">
+          <div class="section-eyebrow">About</div>
+          <h2 class="section-title">Engineering leadership <em>grounded in craft</em></h2>
+        </div>
+        <p>For nearly two decades, I've sat at the intersection of <strong>deep technical ownership and people leadership</strong> — running distributed teams across time zones, shaping architecture decisions that last years, and translating complex healthcare standards into shipping software.</p>
+        <p>My strongest gear is the <strong>Senior PM / Lead role</strong>: accountable for scope, delivery, team health, and stakeholder confidence all at once. I've operated in this mode at NextGen Healthcare for 13+ years across the most compliance-heavy, interoperability-critical systems in U.S. healthcare.</p>
+        <p>I don't manage from a distance. I review PRs, call out architectural drift early, run post-mortems with rigour, and keep engineers motivated through complex deliveries. I'm an <strong>A-CSM certified Scrum Master</strong> who has run squads of 10+ through full Agile cycles from backlog grooming to retrospective.</p>
+      </div>
+      <div class="about-sidebar">
+        <div class="info-card">
+          <div class="info-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1a3 3 0 100 6 3 3 0 000-6zM3 13c0-2.76 2.24-5 5-5s5 2.24 5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+          <div><div class="info-label">Location</div><div class="info-value">India &middot; Open to Remote / Relocation</div></div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 5l6-3 6 3v7l-6 3-6-3V5z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg></div>
+          <div><div class="info-label">Domain</div><div class="info-value">U.S. Healthcare IT &middot; EHR &middot; Interoperability</div></div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2v4l3 3M8 14A6 6 0 108 2a6 6 0 000 12z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+          <div><div class="info-label">Methodology</div><div class="info-value">Agile Scrum &middot; A-CSM &middot; CI/CD &middot; TDD/BDD</div></div>
+        </div>
+        <div class="info-card info-card--list">
+          <div class="info-icon info-icon--top"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1 13l5-5 3 3 5-7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div style="flex:1;">
+            <div class="info-label" style="margin-bottom:10px;">Key Achievements</div>
+            <ul class="achievement-pills">
+              <li><span class="pill-dot"></span><strong>95%</strong> delivery on or before time</li>
+              <li><span class="pill-dot"></span>Go-to contact when production breaks — structured post-mortems, root-cause obsessed</li>
+              <li><span class="pill-dot"></span>Led 10+ member distributed team across USA &amp; India</li>
+              <li><span class="pill-dot"></span>Improved CCDA generation performance by <strong>80%</strong></li>
+              <li><span class="pill-dot"></span>Expert in U.S. healthcare interoperability standards</li>
+              <li><span class="pill-dot"></span>Eliminated vendor licensing costs — Symphonia &rarr; NHapi migration</li>
+              <li><span class="pill-dot"></span>Multiple new feature proposals adopted into product</li>
+              <li><span class="pill-dot"></span>Primary contact for client calls &amp; critical incidents</li>
+              <li><span class="pill-dot"></span>Drove architectural improvement initiatives</li>
+              <li><span class="pill-dot"></span>Star Award &middot; Pat on Back &middot; Multiple Spot Awards</li>
+              <li><span class="pill-dot"></span>Hackathon idea appreciated by CEO &amp; CTO</li>
+            </ul>
+          </div>
+        </div>
+        <div class="info-card info-card--list">
+          <div class="info-icon info-icon--top">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="5" height="5" rx="1" stroke="currentColor" stroke-width="1.3"/><rect x="9" y="2" width="5" height="5" rx="1" stroke="currentColor" stroke-width="1.3"/><rect x="2" y="9" width="5" height="5" rx="1" stroke="currentColor" stroke-width="1.3"/><circle cx="11.5" cy="11.5" r="2.5" stroke="currentColor" stroke-width="1.3"/></svg>
+          </div>
+          <div style="flex:1;">
+            <div class="info-label" style="margin-bottom:8px;">AI Tools</div>
+            <div class="ai-tool-tags">
+              <span class="ai-tag">Claude</span>
+              <span class="ai-tag">Windsurf</span>
+              <span class="ai-tag">Cursor</span>
+              <span class="ai-tag">Copilot</span>
+              <span class="ai-tag">ChatGPT</span>
+              <span class="ai-tag">OpenAI</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Capabilities</div>
+      <h2 class="section-title">What I bring <em>to the table</em></h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <div class="skill-group-label">Leadership &amp; Delivery</div>
+        <div class="skill-tags">
+          <span class="skill-tag accent-tag">Engineering Management</span>
+          <span class="skill-tag accent-tag">Project Delivery</span>
+          <span class="skill-tag">Agile / Scrum</span>
+          <span class="skill-tag">A-CSM Certified</span>
+          <span class="skill-tag">Distributed Teams</span>
+          <span class="skill-tag">Stakeholder Management</span>
+          <span class="skill-tag">Onshore-Offshore Sync</span>
+          <span class="skill-tag">Hiring &amp; Mentoring</span>
+          <span class="skill-tag">Problem Management</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">Healthcare Interoperability</div>
+        <div class="skill-tags">
+          <span class="skill-tag accent-tag">HL7 v2 / v3</span>
+          <span class="skill-tag accent-tag">FHIR</span>
+          <span class="skill-tag accent-tag">CCDA</span>
+          <span class="skill-tag">ECR</span>
+          <span class="skill-tag">XDS / XDR / XDM</span>
+          <span class="skill-tag">SMART on FHIR</span>
+          <span class="skill-tag">Mirth Connect</span>
+          <span class="skill-tag">EHR Integration</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">Core Engineering Stack</div>
+        <div class="skill-tags">
+          <span class="skill-tag">.NET Core / Framework</span>
+          <span class="skill-tag">C#</span>
+          <span class="skill-tag">ASP.NET MVC</span>
+          <span class="skill-tag">Web API</span>
+          <span class="skill-tag">WPF</span>
+          <span class="skill-tag">SQL Server</span>
+          <span class="skill-tag">Entity Framework</span>
+          <span class="skill-tag">Microservices</span>
+          <span class="skill-tag">HTML5 / CSS3 / JS</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">Cloud &amp; DevOps</div>
+        <div class="skill-tags">
+          <span class="skill-tag accent-tag">Docker</span>
+          <span class="skill-tag accent-tag">Kubernetes</span>
+          <span class="skill-tag accent-tag">AWS</span>
+          <span class="skill-tag">Jenkins CI/CD</span>
+          <span class="skill-tag">TDD / BDD</span>
+          <span class="skill-tag">NUnit</span>
+          <span class="skill-tag">Git</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">AI &amp; Productivity Tools</div>
+        <div class="skill-tags">
+          <span class="skill-tag accent-tag">Claude</span>
+          <span class="skill-tag accent-tag">Windsurf</span>
+          <span class="skill-tag accent-tag">Cursor</span>
+          <span class="skill-tag">GitHub Copilot</span>
+          <span class="skill-tag">ChatGPT</span>
+          <span class="skill-tag">OpenAI</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Experience</div>
+      <h2 class="section-title">Where I've <em>done the work</em></h2>
+    </div>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-meta">
+          <span class="timeline-period">Oct 2012 &mdash; Feb 2026 &middot; 13 years</span>
+          <span class="timeline-badge badge-current">Most Recent</span>
+        </div>
+        <div class="timeline-role">Sr. Staff Engineer / Engineering Lead</div>
+        <div class="timeline-company">NextGen Healthcare India Pvt. Ltd. &middot; Bangalore</div>
+        <div class="timeline-achievements">
+          <div class="achievement"><div class="achievement-marker">&#9650;</div><div class="achievement-text"><strong>Led a geographically distributed team of 10+ members</strong> across the USA and India — managing delivery cadence, onshore-offshore synchronisation, and end-to-end programme accountability as both Engineering Lead and Scrum Master.</div></div>
+          <div class="achievement"><div class="achievement-marker">&#9650;</div><div class="achievement-text"><strong>Improved CCDA generation performance by 80%</strong> through targeted architectural redesign and database query optimisation — one of the highest-impact technical contributions across the entire product line.</div></div>
+          <div class="achievement"><div class="achievement-marker">&#9650;</div><div class="achievement-text"><strong>Deep expertise across U.S. healthcare interoperability standards</strong> — HL7 v2/v3, FHIR, CCDA, ECR, XDS/XDR/XDM, and SMART on FHIR; Mirth Connect Certified Professional; U.S. Connectathon participant.</div></div>
+          <div class="achievement"><div class="achievement-marker">&#9650;</div><div class="achievement-text"><strong>Eliminated vendor licensing costs</strong> by leading the full migration from paid Symphonia to open-source NHapi, maintaining complete HL7 parsing integrity throughout — reducing operational overhead significantly.</div></div>
+          <div class="achievement"><div class="achievement-marker">&#9650;</div><div class="achievement-text"><strong>Drove multiple new feature proposals and architectural improvement initiatives</strong> — translating client feedback, production learnings, and domain knowledge into concrete product enhancements adopted across releases.</div></div>
+          <div class="achievement"><div class="achievement-marker">&#9650;</div><div class="achievement-text"><strong>Primary point of contact for client calls and critical production incidents</strong> — consistently resolving high-severity issues under pressure with minimal business disruption and clear stakeholder communication.</div></div>
+          <div class="achievement"><div class="achievement-marker">&#9650;</div><div class="achievement-text"><strong>Established engineering standards</strong>: CI/CD pipelines (Jenkins), code review guidelines, production support protocols, and quality gates — lifting the overall bar for delivery consistency.</div></div>
+          <div class="achievement"><div class="achievement-marker">&#9650;</div><div class="achievement-text"><strong>Recognised across multiple award programmes</strong>: Star Award, Pat on Back Award, and multiple Spot Awards — reflecting sustained contributions to quality, delivery excellence, and team culture over 13 years.</div></div>
+          <div class="achievement"><div class="achievement-marker">&#9650;</div><div class="achievement-text"><strong>Hackathon idea personally appreciated by the CEO and CTO</strong> — demonstrating ability to innovate beyond day-to-day delivery and align engineering thinking directly with business strategy.</div></div>
+          <div class="achievement"><div class="achievement-marker">&#9650;</div><div class="achievement-text"><strong>Built internal productivity tooling</strong> (G2J Gherkin-to-Jira converter, XML utilities) to automate QA and development workflows, reducing manual effort and improving sprint throughput.</div></div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-meta">
+          <span class="timeline-period">Apr 2008 &mdash; Oct 2012 &middot; 4.5 years</span>
+          <span class="timeline-badge badge-past">Previous</span>
+        </div>
+        <div class="timeline-role">Software Engineer (Onsite &mdash; Dell Technologies)</div>
+        <div class="timeline-company">UST Global</div>
+        <div class="timeline-achievements">
+          <div class="achievement"><div class="achievement-marker">&#9650;</div><div class="achievement-text">Delivered client-facing enterprise software solutions onsite at Dell Technologies, working within large-scale .NET systems and collaborating with international stakeholder teams.</div></div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-meta">
+          <span class="timeline-period">Mar 2006 &mdash; Mar 2008 &middot; 2 years</span>
+          <span class="timeline-badge badge-past">Previous</span>
+        </div>
+        <div class="timeline-role">Software Engineer</div>
+        <div class="timeline-company">Satyam Technology (now Tech Mahindra)</div>
+        <div class="timeline-achievements">
+          <div class="achievement"><div class="achievement-marker">&#9650;</div><div class="achievement-text">Foundation years in enterprise software delivery — building domain depth across .NET, systems integration, and full-stack development in production-grade environments.</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- IMPACT -->
+<section id="impact">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Measured Impact</div>
+      <h2 class="section-title">Results, <em>not responsibilities</em></h2>
+    </div>
+    <div class="impact-grid" id="impactGrid">
+      <div class="impact-card active" onclick="toggleAchievements()">
+        <div class="impact-number">80<span class="impact-accent">%</span></div>
+        <div class="impact-desc">CCDA performance improvement through architecture-level redesign and query optimisation</div>
+      </div>
+      <div class="impact-card active" onclick="toggleAchievements()">
+        <div class="impact-number">12<span class="impact-accent">+</span></div>
+        <div class="impact-desc">Years of sustained delivery at a single high-complexity healthcare product company</div>
+      </div>
+      <div class="impact-card active" onclick="toggleAchievements()">
+        <div class="impact-number">10<span class="impact-accent">+</span></div>
+        <div class="impact-desc">Engineers led concurrently across distributed USA-India onshore-offshore teams</div>
+      </div>
+      <div class="impact-card active" onclick="toggleAchievements()">
+        <div class="impact-number">0<span class="impact-accent">&#8594;1</span></div>
+        <div class="impact-desc">Full HL7 stack migrated from paid vendor to open-source, eliminating licensing dependency</div>
+      </div>
+    </div>
+    <div class="impact-hint hidden" id="impactHint">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v12M7 13l-4-4M7 13l4-4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Click any card to see key achievements
+    </div>
+    <div class="achievements-panel open" id="achievementsPanel">
+      <div class="achievements-panel-inner">
+        <div class="ap-header">
+          <div class="ap-title">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1 13l5-5 3 3 5-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Key Achievements
+          </div>
+          <button class="ap-close" onclick="toggleAchievements()" aria-label="Close">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 2l10 10M12 2L2 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </button>
+        </div>
+        <div class="ap-grid">
+          <div class="ap-item"><span class="ap-dot"></span><div><strong>Led 10+ member distributed team</strong> across USA &amp; India — onshore-offshore synchronisation and end-to-end programme accountability.</div></div>
+          <div class="ap-item"><span class="ap-dot"></span><div><strong>80% CCDA generation performance gain</strong> via targeted architectural redesign and database query optimisation.</div></div>
+          <div class="ap-item"><span class="ap-dot"></span><div><strong>Expert in U.S. healthcare interoperability</strong> — HL7, FHIR, CCDA, ECR, XDS/XDR/XDM, SMART on FHIR; Mirth Connect Certified.</div></div>
+          <div class="ap-item"><span class="ap-dot"></span><div><strong>Migrated Symphonia (paid) &rarr; NHapi (open-source)</strong> — full HL7 parsing integrity maintained, licensing costs eliminated.</div></div>
+          <div class="ap-item"><span class="ap-dot"></span><div><strong>Multiple new feature proposals</strong> and architectural improvements adopted into product across releases.</div></div>
+          <div class="ap-item"><span class="ap-dot"></span><div><strong>Primary contact for client calls &amp; critical production incidents</strong> — resolved high-severity issues under pressure with minimal business disruption.</div></div>
+          <div class="ap-item"><span class="ap-dot"></span><div><strong>Drove architectural improvement initiatives</strong> — CI/CD pipelines, code review guidelines, production support protocols.</div></div>
+          <div class="ap-item"><span class="ap-dot"></span><div><strong>Star Award, Pat on Back &amp; multiple Spot Awards</strong> — sustained recognition for delivery excellence over 13 years.</div></div>
+          <div class="ap-item"><span class="ap-dot"></span><div><strong>Hackathon idea appreciated by CEO &amp; CTO</strong> — engineering innovation aligned directly with business strategy.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Education &amp; Certifications</div>
+      <h2 class="section-title">Credentials <em>that compound</em></h2>
+    </div>
+    <div class="edu-certs-grid">
+      <div class="edu-card">
+        <div class="card-eyebrow">Education</div>
+        <div class="card-title">Master of Computer Applications (M.C.A)</div>
+        <div class="card-sub">Nirma Institute of Technology, Ahmedabad</div>
+        <div class="card-year">Class of 2005</div>
+      </div>
+      <div class="cert-card">
+        <div class="card-eyebrow">Certification</div>
+        <div class="cert-badge-row">
+          <div class="cert-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2L11.09 7.26L17 8.27L13 12.14L13.91 18L9 15.37L4.09 18L5 12.14L1 8.27L6.91 7.26L9 2Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg></div>
+          <div class="card-title">Advanced Certified Scrum Master (A-CSM)</div>
+        </div>
+        <div class="card-sub">Scrum Alliance</div>
+        <div class="card-year">Active Certification</div>
+      </div>
+      <div class="cert-card">
+        <div class="card-eyebrow">Professional Certification</div>
+        <div class="cert-badge-row">
+          <div class="cert-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9l5 5L15 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="card-title">Mirth Connect Certified Professional</div>
+        </div>
+        <div class="card-sub">Healthcare Integration Specialist</div>
+        <div class="card-year">+ U.S. Connectathon Participant</div>
+      </div>
+      <div class="cert-card">
+        <div class="card-eyebrow">Recognition</div>
+        <div class="cert-badge-row">
+          <div class="cert-icon" style="background:var(--amber-dim);border-color:rgba(180,83,9,0.2);color:var(--amber);">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2L11.09 7.26L17 8.27L13 12.14L13.91 18L9 15.37L4.09 18L5 12.14L1 8.27L6.91 7.26L9 2Z" fill="currentColor"/></svg>
+          </div>
+          <div class="card-title">Star Award, Pat on Back &amp; Spot Awards</div>
+        </div>
+        <div class="card-sub">NextGen Healthcare &mdash; Engineering Excellence</div>
+        <div class="card-year">+ CEO / CTO Hackathon Recognition</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-card">
+      <div class="contact-title">Ready to build something that ships.</div>
+      <p class="contact-sub">Looking for an Engineering Lead or Senior PM who's been there — technically deep, people-first, and obsessed with delivery. Let's talk.</p>
+      <div class="contact-links">
+        <a id="ctaEmail" href="#" class="contact-link primary">
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M1 3.5A1.5 1.5 0 012.5 2h10A1.5 1.5 0 0114 3.5v8a1.5 1.5 0 01-1.5 1.5h-10A1.5 1.5 0 011 11.5v-8zm1.5-.5a.5.5 0 00-.5.5L7.5 8 13 3.5a.5.5 0 00-.5-.5h-10zM13 4.73L8.22 8.75a1 1 0 01-1.44 0L2 4.73V11.5a.5.5 0 00.5.5h10a.5.5 0 00.5-.5V4.73z" fill="currentColor"/></svg>
+          <span id="ctaEmailText">rushalmak&#64;gmail.com</span>
+        </a>
+        <a href="tel:9019197711" class="contact-link secondary">
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M5.07 2.29a1 1 0 00-1.41.05L2.22 3.83C1.47 4.71 1.5 6 2.27 6.93c.77.92 2 2.16 3.5 3.5.92.77 2.21.8 3.1.05l1.5-1.44a1 1 0 00.05-1.41L9 6.2a1 1 0 00-1.41.05L7 6.85C6.5 6.39 5.92 5.79 5.43 5.2L6.04 4.6a1 1 0 00.05-1.41L5.07 2.3z" stroke="currentColor" stroke-width="1.2"/></svg>
+          +91 9019 197 711
+        </a>
+        <a id="teamsLink" href="https://teams.microsoft.com/l/chat/0/0?users=rushaal@outlook.com" target="_blank" rel="noopener" class="contact-link teams">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10.5 5a2 2 0 100-4 2 2 0 000 4z" fill="currentColor" opacity=".7"/><path d="M13.5 6h-1.586A2.5 2.5 0 0110 10H8v1.5A1.5 1.5 0 009.5 13h4A1.5 1.5 0 0015 11.5v-4A1.5 1.5 0 0013.5 6z" fill="currentColor" opacity=".7"/><path d="M6 6.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" fill="currentColor"/><path d="M9.5 8A1.5 1.5 0 0111 9.5v2A1.5 1.5 0 019.5 13h-7A1.5 1.5 0 011 11.5v-2A1.5 1.5 0 012.5 8h7z" fill="currentColor"/></svg>
+          Chat on Teams
+        </a>
+        <a href="https://www.linkedin.com/in/rushal-maksane-244710161/" target="_blank" rel="noopener" class="contact-link linkedin">
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3.5 2a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM.5 5h2.5v8.5H.5V5zm5 0h2.4v1.16h.03A2.63 2.63 0 0110.3 4.75c2.5 0 2.97 1.65 2.97 3.8v4.95h-2.5V9.14c0-1.02-.02-2.33-1.42-2.33-1.42 0-1.64 1.11-1.64 2.26v4.43H5.5V5z" fill="currentColor"/></svg>
+          LinkedIn
+        </a>
+        <a href="javascript:window.print()" class="contact-link secondary">
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M4 5V2h7v3M4 11H2V6h11v5h-2M4 9h7v4H4V9z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+          Save as PDF
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p class="footer-text">Rushal Maksane &nbsp;&middot;&nbsp; <span id="footerEmail">rushalmak&#64;gmail.com</span> &nbsp;&middot;&nbsp; +91 9019 197 711</p>
+</footer>
+
+<script>
+(function () {
+  var u = 'rushalmak';
+  var d = 'gmail.com';
+  var email = u + '\u0040' + d;
+  var mailto = 'mailto:' + email;
+
+  var heroEl = document.getElementById('heroEmail');
+  if (heroEl) heroEl.href = mailto;
+
+  var ctaEl = document.getElementById('ctaEmail');
+  if (ctaEl) ctaEl.href = mailto;
+
+  var ctaTxt = document.getElementById('ctaEmailText');
+  if (ctaTxt) ctaTxt.textContent = email;
+
+  var footerEl = document.getElementById('footerEmail');
+  if (footerEl) footerEl.textContent = email;
+
+  // Nav
+  var hb = document.getElementById('hamburger');
+  var nv = document.getElementById('nav');
+  if (hb) hb.addEventListener('click', function () { nv.classList.toggle('menu-open'); });
+  document.querySelectorAll('.nav-links a').forEach(function (a) {
+    a.addEventListener('click', function () { nv.classList.remove('menu-open'); });
+  });
+  window.addEventListener('scroll', function () {
+    nv.style.borderBottomColor = window.scrollY > 8 ? '#AEAEB2' : '#D2D2D7';
+  }, { passive: true });
+
+  // Scroll-triggered fade-in animations
+  var style = document.createElement('style');
+  style.textContent = '.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.7s cubic-bezier(0.16,1,0.3,1),transform 0.7s cubic-bezier(0.16,1,0.3,1);}.reveal.visible{opacity:1;transform:translateY(0);}';
+  document.head.appendChild(style);
+
+  var sections = document.querySelectorAll('section:not(#hero)');
+  sections.forEach(function(s) { s.classList.add('reveal'); });
+
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+  sections.forEach(function(s) { observer.observe(s); });
+}());
+
+function toggleAchievements() {
+  var panel = document.getElementById('achievementsPanel');
+  var hint  = document.getElementById('impactHint');
+  var cards = document.querySelectorAll('.impact-card');
+  var isOpen = panel.classList.contains('open');
+
+  if (isOpen) {
+    panel.classList.remove('open');
+    hint.classList.remove('hidden');
+    cards.forEach(function(c){ c.classList.remove('active'); });
+  } else {
+    panel.classList.add('open');
+    hint.classList.add('hidden');
+    cards.forEach(function(c){ c.classList.add('active'); });
+    setTimeout(function(){
+      panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }, 100);
+  }
+}
+</script>
+</body>
+</html>
