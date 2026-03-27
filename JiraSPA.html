@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RM-001 · Rushal Maksane</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:         #F4F5F7;
+  --surface:    #FFFFFF;
+  --surface-2:  #F4F5F7;
+  --border:     #DFE1E6;
+  --border-2:   #C1C7D0;
+  --ink:        #172B4D;
+  --ink-2:      #344563;
+  --ink-3:      #6B778C;
+  --ink-4:      #97A0AF;
+  --accent:     #0052CC;
+  --accent-dim: rgba(0,82,204,0.08);
+  --green:      #00875A;
+  --green-dim:  rgba(0,135,90,0.1);
+  --purple:     #6554C0;
+  --purple-dim: rgba(101,84,192,0.1);
+  --amber:      #FF8B00;
+  --amber-dim:  rgba(255,139,0,0.1);
+  --red:        #DE350B;
+  --red-dim:    rgba(222,53,11,0.08);
+  --mono:       'JetBrains Mono', monospace;
+  --serif:      'DM Serif Display', serif;
+  --sans:       'DM Sans', sans-serif;
+  --r-sm:       4px;
+  --r-md:       8px;
+  --r-lg:       12px;
+  --t:          0.2s ease;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 14px; line-height: 1.6; }
+a { color: var(--accent); text-decoration: none; }
+
+/* ── TOPBAR (like Jira's nav) ── */
+.topbar {
+  background: var(--ink);
+  height: 48px;
+  display: flex; align-items: center;
+  padding: 0 20px; gap: 24px;
+  position: sticky; top: 0; z-index: 100;
+}
+.topbar-logo {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--mono); font-size: 12px; font-weight: 500;
+  color: rgba(255,255,255,0.9); letter-spacing: 0.05em;
+}
+.topbar-logo-icon {
+  width: 24px; height: 24px; background: var(--accent);
+  border-radius: 4px; display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 600; color: #fff;
+}
+.topbar-nav { display: flex; gap: 2px; margin-left: 8px; }
+.topbar-nav a {
+  font-size: 13px; color: rgba(255,255,255,0.7);
+  padding: 6px 10px; border-radius: var(--r-sm);
+  transition: background var(--t), color var(--t);
+}
+.topbar-nav a:hover { background: rgba(255,255,255,0.1); color: #fff; }
+.topbar-nav a.active { background: rgba(255,255,255,0.15); color: #fff; }
+.topbar-right {
+  margin-left: auto; display: flex; align-items: center; gap: 10px;
+}
+.topbar-avatar {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--accent); display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 600; color: #fff; font-family: var(--mono);
+}
+
+/* ── BREADCRUMB ── */
+.breadcrumb {
+  padding: 14px 24px; display: flex; align-items: center; gap: 6px;
+  font-size: 12px; color: var(--ink-3); border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+.breadcrumb a { color: var(--ink-3); transition: color var(--t); }
+.breadcrumb a:hover { color: var(--accent); }
+.breadcrumb span { color: var(--ink-4); }
+
+/* ── LAYOUT ── */
+.layout { display: grid; grid-template-columns: 1fr 340px; gap: 0; min-height: calc(100vh - 48px); }
+
+/* ── MAIN CONTENT ── */
+.main { padding: 28px 32px; border-right: 1px solid var(--border); }
+
+/* ── EPIC HEADER ── */
+.epic-type-row {
+  display: flex; align-items: center; gap: 8px; margin-bottom: 12px;
+}
+.issue-type-badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 3px 8px; border-radius: var(--r-sm);
+  font-family: var(--mono); font-size: 11px; font-weight: 500;
+  letter-spacing: 0.04em; text-transform: uppercase;
+}
+.type-epic   { background: var(--purple-dim); color: var(--purple); border: 1px solid rgba(101,84,192,0.2); }
+.type-story  { background: var(--green-dim);  color: var(--green);  border: 1px solid rgba(0,135,90,0.2); }
+.type-task   { background: var(--accent-dim); color: var(--accent); border: 1px solid rgba(0,82,204,0.2); }
+.type-bug    { background: var(--red-dim);    color: var(--red);    border: 1px solid rgba(222,53,11,0.2); }
+
+.issue-key {
+  font-family: var(--mono); font-size: 12px; color: var(--ink-3);
+  font-weight: 500; letter-spacing: 0.05em;
+}
+
+.epic-title {
+  font-family: var(--serif);
+  font-size: 28px; font-weight: 400;
+  letter-spacing: -0.02em; line-height: 1.15;
+  color: var(--ink); margin-bottom: 20px;
+}
+.epic-title em { font-style: italic; color: var(--accent); }
+
+/* STATUS ROW */
+.status-row {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 24px; flex-wrap: wrap;
+}
+.status-badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 4px 10px; border-radius: 980px;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+}
+.status-inprogress { background: var(--accent-dim); color: var(--accent); border: 1px solid rgba(0,82,204,0.2); }
+.status-done       { background: var(--green-dim);  color: var(--green);  border: 1px solid rgba(0,135,90,0.2); }
+.status-open       { background: var(--surface-2);  color: var(--ink-3);  border: 1px solid var(--border); }
+.priority-badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 11px; color: var(--ink-3); font-family: var(--mono);
+}
+.priority-dot { width: 8px; height: 8px; border-radius: 50%; }
+.p-high   { background: var(--amber); }
+.p-medium { background: var(--accent); }
+
+/* DIVIDER */
+.section-divider { height: 1px; background: var(--border); margin: 28px 0; }
+
+/* SECTION LABEL */
+.field-label {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--ink-4); margin-bottom: 10px;
+}
+
+/* DESCRIPTION */
+.description {
+  font-size: 14px; color: var(--ink-2); line-height: 1.8; font-weight: 300;
+}
+.description p { margin-bottom: 14px; }
+.description p:last-child { margin-bottom: 0; }
+.description strong { color: var(--ink); font-weight: 500; }
+
+/* ACCEPTANCE CRITERIA (= Achievements) */
+.ac-list { display: flex; flex-direction: column; gap: 8px; }
+.ac-item {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 10px 14px;
+  background: var(--surface-2); border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  font-size: 13px; color: var(--ink-2); line-height: 1.6;
+  transition: border-color var(--t), box-shadow var(--t);
+}
+.ac-item:hover { border-color: var(--border-2); box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+.ac-check {
+  width: 16px; height: 16px; border-radius: 50%;
+  background: var(--green-dim); border: 1.5px solid var(--green);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 2px;
+  font-size: 8px; color: var(--green);
+}
+.ac-item strong { color: var(--ink); font-weight: 500; }
+
+/* CHILD ISSUES (Work Items = Jobs) */
+.child-issues { display: flex; flex-direction: column; gap: 6px; }
+.child-issue {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 14px 16px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r-md); cursor: pointer;
+  transition: border-color var(--t), box-shadow var(--t), transform var(--t);
+}
+.child-issue:hover {
+  border-color: var(--accent); box-shadow: 0 2px 12px rgba(0,82,204,0.08);
+  transform: translateX(2px);
+}
+.child-issue.expanded { border-color: var(--border-2); }
+.ci-left { flex: 1; min-width: 0; }
+.ci-key {
+  font-family: var(--mono); font-size: 10px; color: var(--ink-4);
+  font-weight: 500; letter-spacing: 0.05em; margin-bottom: 3px;
+}
+.ci-title { font-weight: 500; color: var(--ink); font-size: 13px; margin-bottom: 4px; }
+.ci-sub { font-size: 12px; color: var(--ink-3); font-weight: 300; }
+.ci-right { display: flex; flex-direction: column; align-items: flex-end; gap: 5px; flex-shrink: 0; }
+.ci-period {
+  font-family: var(--mono); font-size: 10px; color: var(--ink-4);
+  letter-spacing: 0.03em; white-space: nowrap;
+}
+.child-expand { font-size: 11px; color: var(--accent); font-weight: 500; white-space: nowrap; }
+
+/* EXPANDED TASK CONTENT */
+.ci-body {
+  display: none; padding: 0 16px 14px 36px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-top: none; border-radius: 0 0 var(--r-md) var(--r-md);
+  margin-top: -6px;
+}
+.ci-body.open { display: block; }
+.ci-body .ac-item { background: #fff; }
+.ci-achievements { display: flex; flex-direction: column; gap: 7px; margin-top: 14px; }
+
+/* SKILL TAGS */
+.tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag {
+  padding: 4px 10px; border-radius: 980px; font-size: 12px;
+  background: var(--surface); border: 1px solid var(--border);
+  color: var(--ink-3); font-weight: 400; transition: var(--t);
+}
+.tag:hover { border-color: var(--border-2); color: var(--ink); }
+.tag.accent { background: var(--accent-dim); border-color: rgba(0,82,204,0.2); color: var(--accent); }
+.tag.green  { background: var(--green-dim);  border-color: rgba(0,135,90,0.2);  color: var(--green); }
+
+/* STORY SECTION */
+.stories-grid { display: flex; flex-direction: column; gap: 20px; }
+.story-block {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r-lg); overflow: hidden;
+}
+.story-header {
+  padding: 16px 20px; border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: 10px;
+}
+.story-key { font-family: var(--mono); font-size: 10px; color: var(--ink-4); letter-spacing: 0.05em; }
+.story-title { font-size: 14px; font-weight: 600; color: var(--ink); flex: 1; }
+.story-body { padding: 16px 20px; }
+
+/* ── SIDEBAR ── */
+.sidebar { padding: 28px 24px; background: var(--surface); }
+.sidebar-section { margin-bottom: 28px; }
+.sidebar-section:last-child { margin-bottom: 0; }
+.sidebar-label {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--ink-4); margin-bottom: 14px;
+  padding-bottom: 8px; border-bottom: 1px solid var(--border);
+}
+
+/* DETAIL ROW */
+.detail-row { display: flex; flex-direction: column; gap: 12px; }
+.detail-item { display: flex; gap: 0; flex-direction: column; }
+.detail-item-label { font-size: 11px; color: var(--ink-4); font-weight: 500; margin-bottom: 3px; letter-spacing: 0.03em; }
+.detail-item-value { font-size: 13px; color: var(--ink-2); font-weight: 400; }
+.detail-item-value a { color: var(--accent); }
+.detail-item-value.mono { font-family: var(--mono); font-size: 12px; }
+
+/* PROGRESS BAR */
+.progress-block { margin-bottom: 6px; }
+.progress-label-row { display: flex; justify-content: space-between; margin-bottom: 6px; }
+.progress-label-row span { font-size: 11px; color: var(--ink-3); font-family: var(--mono); }
+.progress-bar { height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
+.progress-fill { height: 100%; border-radius: 3px; background: var(--green); transition: width 1s var(--ease-out); }
+@keyframes fadeUp { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+.main > * { animation: fadeUp 0.5s ease both; }
+
+/* ACTIVITY */
+.activity-list { display: flex; flex-direction: column; gap: 12px; }
+.activity-item { display: flex; gap: 10px; align-items: flex-start; }
+.activity-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--border-2); flex-shrink: 0; margin-top: 6px; }
+.activity-dot.green { background: var(--green); }
+.activity-dot.blue  { background: var(--accent); }
+.activity-text { font-size: 12px; color: var(--ink-3); line-height: 1.55; }
+.activity-text strong { color: var(--ink-2); font-weight: 500; }
+.activity-time { font-family: var(--mono); font-size: 10px; color: var(--ink-4); margin-top: 2px; }
+
+/* CONTACT PANEL */
+.contact-panel {
+  background: var(--accent); border-radius: var(--r-lg);
+  padding: 20px; color: #fff; margin-top: 20px;
+}
+.contact-panel-title { font-family: var(--serif); font-size: 18px; margin-bottom: 6px; }
+.contact-panel-sub { font-size: 12px; opacity: 0.8; margin-bottom: 16px; line-height: 1.5; }
+.contact-btn {
+  display: flex; align-items: center; gap: 8px;
+  padding: 9px 14px; border-radius: var(--r-md);
+  background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25);
+  color: #fff; font-size: 12px; font-weight: 500;
+  margin-bottom: 8px; transition: background var(--t);
+  cursor: pointer; width: 100%;
+}
+.contact-btn:last-child { margin-bottom: 0; }
+.contact-btn:hover { background: rgba(255,255,255,0.25); }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { border-top: 1px solid var(--border); }
+}
+@media (max-width: 600px) {
+  .main { padding: 20px 16px; }
+  .topbar-nav { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-logo">
+    <div class="topbar-logo-icon">RM</div>
+    Portfolio
+  </div>
+  <nav class="topbar-nav">
+    <a href="#" class="active">Board</a>
+    <a href="#">Backlog</a>
+    <a href="#">Timeline</a>
+    <a href="#">Reports</a>
+  </nav>
+  <div class="topbar-right">
+    <div class="topbar-avatar">RM</div>
+  </div>
+</div>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="#">Projects</a>
+  <span>/</span>
+  <a href="#">Rushal Maksane</a>
+  <span>/</span>
+  <a href="#">RM-001</a>
+  <span>/</span>
+  Career Epic
+</div>
+
+<!-- LAYOUT -->
+<div class="layout">
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- EPIC HEADER -->
+    <div class="epic-type-row">
+      <span class="issue-type-badge type-epic">
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1l1.5 3H9L6.5 6l1 3L5 7.5 2.5 9l1-3L1 4h2.5L5 1z" fill="currentColor"/></svg>
+        Epic
+      </span>
+      <span class="issue-key">RM-001</span>
+    </div>
+
+    <h1 class="epic-title">Rushal Maksane — <em>Engineering Lead</em><br>&amp; Project Manager</h1>
+
+    <div class="status-row">
+      <span class="status-badge status-inprogress">● In Progress</span>
+      <span class="status-badge status-open">Open to Opportunities</span>
+      <span class="priority-badge"><span class="priority-dot p-high"></span>Priority: High</span>
+    </div>
+
+    <!-- DESCRIPTION -->
+    <div class="field-label">Description</div>
+    <div class="description">
+      <p>For nearly two decades, I've sat at the intersection of <strong>deep technical ownership and people leadership</strong> — running distributed teams across time zones, shaping architecture decisions that last years, and translating complex healthcare standards into shipping software.</p>
+      <p>My strongest gear is the <strong>Senior PM / Lead role</strong>: accountable for scope, delivery, team health, and stakeholder confidence all at once. I've operated in this mode at NextGen Healthcare for 13+ years across the most compliance-heavy, interoperability-critical systems in U.S. healthcare.</p>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- ACCEPTANCE CRITERIA = Key Achievements -->
+    <div class="field-label">Acceptance Criteria — Key Outcomes</div>
+    <div class="ac-list">
+      <div class="ac-item"><div class="ac-check">✓</div><div><strong>80% CCDA performance improvement</strong> through architecture-level redesign and database query optimisation</div></div>
+      <div class="ac-item"><div class="ac-check">✓</div><div><strong>Led 10+ member distributed team</strong> across USA &amp; India — onshore-offshore synchronisation at scale</div></div>
+      <div class="ac-item"><div class="ac-check">✓</div><div><strong>Symphonia → NHapi migration</strong> — full HL7 parsing integrity maintained, vendor licensing eliminated</div></div>
+      <div class="ac-item"><div class="ac-check">✓</div><div><strong>Star Award · Pat on Back · Multiple Spot Awards</strong> — sustained recognition over 13 years at NextGen Healthcare</div></div>
+      <div class="ac-item"><div class="ac-check">✓</div><div><strong>Hackathon idea appreciated by CEO &amp; CTO</strong> — innovation aligned directly with business strategy</div></div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- CHILD ISSUES = Work Experience -->
+    <div class="field-label">Child Issues — Work History</div>
+    <div class="child-issues">
+
+      <!-- WI-1 -->
+      <div class="child-issue" onclick="toggleTask('t1', this)">
+        <div class="ci-left">
+          <div class="ci-key">RM-002 · TASK</div>
+          <div class="ci-title">Sr. Staff Engineer / Engineering Lead</div>
+          <div class="ci-sub">NextGen Healthcare India Pvt. Ltd. · Bangalore</div>
+        </div>
+        <div class="ci-right">
+          <span class="status-badge status-done">✓ Delivered</span>
+          <span class="ci-period">Oct 2012 — Feb 2026 · 13yr</span>
+          <span class="child-expand" id="t1-label">▸ Expand</span>
+        </div>
+      </div>
+      <div class="ci-body" id="t1">
+        <div class="ci-achievements">
+          <div class="ac-item"><div class="ac-check">✓</div><div><strong>Led geographically distributed team of 10+</strong> across the USA and India — delivery cadence, onshore-offshore synchronisation, full programme accountability as Engineering Lead &amp; Scrum Master.</div></div>
+          <div class="ac-item"><div class="ac-check">✓</div><div><strong>Improved CCDA generation performance by 80%</strong> through targeted architectural redesign and database query optimisation.</div></div>
+          <div class="ac-item"><div class="ac-check">✓</div><div><strong>Deep expertise across U.S. healthcare interoperability</strong> — HL7 v2/v3, FHIR, CCDA, ECR, XDS/XDR/XDM, SMART on FHIR. Mirth Connect Certified Professional; U.S. Connectathon participant.</div></div>
+          <div class="ac-item"><div class="ac-check">✓</div><div><strong>Eliminated vendor licensing costs</strong> — full migration from Symphonia to open-source NHapi with complete HL7 parsing integrity maintained.</div></div>
+          <div class="ac-item"><div class="ac-check">✓</div><div><strong>Established engineering standards</strong>: CI/CD pipelines (Jenkins), code review guidelines, production support protocols, quality gates.</div></div>
+          <div class="ac-item"><div class="ac-check">✓</div><div><strong>Built internal productivity tooling</strong> (G2J Gherkin-to-Jira converter, XML utilities) — reduced manual effort, improved sprint throughput.</div></div>
+        </div>
+      </div>
+
+      <!-- WI-2 -->
+      <div class="child-issue" onclick="toggleTask('t2', this)">
+        <div class="ci-left">
+          <div class="ci-key">RM-003 · TASK</div>
+          <div class="ci-title">Software Engineer (Onsite — Dell Technologies)</div>
+          <div class="ci-sub">UST Global</div>
+        </div>
+        <div class="ci-right">
+          <span class="status-badge status-done">✓ Delivered</span>
+          <span class="ci-period">Apr 2008 — Oct 2012 · 4.5yr</span>
+          <span class="child-expand" id="t2-label">▸ Expand</span>
+        </div>
+      </div>
+      <div class="ci-body" id="t2">
+        <div class="ci-achievements" style="margin-top: 14px;">
+          <div class="ac-item"><div class="ac-check">✓</div><div>Delivered client-facing enterprise software solutions onsite at Dell Technologies, working within large-scale .NET systems and collaborating with international stakeholder teams.</div></div>
+        </div>
+      </div>
+
+      <!-- WI-3 -->
+      <div class="child-issue" onclick="toggleTask('t3', this)">
+        <div class="ci-left">
+          <div class="ci-key">RM-004 · TASK</div>
+          <div class="ci-title">Software Engineer</div>
+          <div class="ci-sub">Satyam Technology (now Tech Mahindra)</div>
+        </div>
+        <div class="ci-right">
+          <span class="status-badge status-done">✓ Delivered</span>
+          <span class="ci-period">Mar 2006 — Mar 2008 · 2yr</span>
+          <span class="child-expand" id="t3-label">▸ Expand</span>
+        </div>
+      </div>
+      <div class="ci-body" id="t3">
+        <div class="ci-achievements" style="margin-top: 14px;">
+          <div class="ac-item"><div class="ac-check">✓</div><div>Foundation years in enterprise software delivery — domain depth across .NET, systems integration, and full-stack development in production-grade environments.</div></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- STORIES = Skill Groups -->
+    <div class="field-label">Stories — Capability Areas</div>
+    <div class="stories-grid">
+
+      <div class="story-block">
+        <div class="story-header">
+          <span class="issue-type-badge type-story">Story</span>
+          <span class="story-key">RM-010</span>
+          <span class="story-title">Leadership &amp; Project Delivery</span>
+          <span class="status-badge status-inprogress">Active</span>
+        </div>
+        <div class="story-body">
+          <div class="tag-cloud">
+            <span class="tag accent">Engineering Management</span>
+            <span class="tag accent">Project Delivery</span>
+            <span class="tag">Agile / Scrum</span>
+            <span class="tag">A-CSM Certified</span>
+            <span class="tag">Distributed Teams</span>
+            <span class="tag">Stakeholder Management</span>
+            <span class="tag">Onshore-Offshore Sync</span>
+            <span class="tag">Hiring &amp; Mentoring</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="story-block">
+        <div class="story-header">
+          <span class="issue-type-badge type-story">Story</span>
+          <span class="story-key">RM-011</span>
+          <span class="story-title">Healthcare Interoperability</span>
+          <span class="status-badge status-inprogress">Active</span>
+        </div>
+        <div class="story-body">
+          <div class="tag-cloud">
+            <span class="tag green">HL7 v2 / v3</span>
+            <span class="tag green">FHIR</span>
+            <span class="tag green">CCDA</span>
+            <span class="tag">ECR</span>
+            <span class="tag">XDS / XDR / XDM</span>
+            <span class="tag">SMART on FHIR</span>
+            <span class="tag">Mirth Connect</span>
+            <span class="tag">EHR Integration</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="story-block">
+        <div class="story-header">
+          <span class="issue-type-badge type-story">Story</span>
+          <span class="story-key">RM-012</span>
+          <span class="story-title">Core Engineering Stack</span>
+          <span class="status-badge status-done">Proven</span>
+        </div>
+        <div class="story-body">
+          <div class="tag-cloud">
+            <span class="tag">.NET Core / Framework</span>
+            <span class="tag">C#</span>
+            <span class="tag">ASP.NET MVC</span>
+            <span class="tag">Web API</span>
+            <span class="tag">SQL Server</span>
+            <span class="tag">Microservices</span>
+            <span class="tag">Docker</span>
+            <span class="tag">AWS</span>
+            <span class="tag">Jenkins CI/CD</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div class="sidebar-section">
+      <div class="sidebar-label">Details</div>
+      <div class="detail-row">
+        <div class="detail-item">
+          <div class="detail-item-label">Assignee</div>
+          <div class="detail-item-value">Rushal Maksane</div>
+        </div>
+        <div class="detail-item">
+          <div class="detail-item-label">Status</div>
+          <div class="detail-item-value"><span class="status-badge status-inprogress">● In Progress</span></div>
+        </div>
+        <div class="detail-item">
+          <div class="detail-item-label">Priority</div>
+          <div class="detail-item-value"><span class="priority-badge"><span class="priority-dot p-high"></span>High — Open to Roles</span></div>
+        </div>
+        <div class="detail-item">
+          <div class="detail-item-label">Location</div>
+          <div class="detail-item-value">India · Remote / Relocation</div>
+        </div>
+        <div class="detail-item">
+          <div class="detail-item-label">Domain</div>
+          <div class="detail-item-value">U.S. Healthcare IT · EHR</div>
+        </div>
+        <div class="detail-item">
+          <div class="detail-item-label">Story Points</div>
+          <div class="detail-item-value mono">19+ years · SP: ∞</div>
+        </div>
+        <div class="detail-item">
+          <div class="detail-item-label">Sprint</div>
+          <div class="detail-item-value mono">Career Sprint 2026</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-label">Delivery Progress</div>
+      <div class="progress-block">
+        <div class="progress-label-row">
+          <span>Healthcare IT</span><span>12 / 12 yr</span>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
+      </div>
+      <div class="progress-block" style="margin-top:10px;">
+        <div class="progress-label-row">
+          <span>Team Leadership</span><span>10+ engineers</span>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" style="width:88%"></div></div>
+      </div>
+      <div class="progress-block" style="margin-top:10px;">
+        <div class="progress-label-row">
+          <span>On-Time Delivery</span><span>95%</span>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" style="width:95%"></div></div>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-label">Credentials</div>
+      <div class="detail-row">
+        <div class="detail-item">
+          <div class="detail-item-label">Education</div>
+          <div class="detail-item-value">M.C.A — Nirma Institute of Technology, 2005</div>
+        </div>
+        <div class="detail-item">
+          <div class="detail-item-label">Certification</div>
+          <div class="detail-item-value">Advanced Certified Scrum Master (A-CSM)</div>
+        </div>
+        <div class="detail-item">
+          <div class="detail-item-label">Certification</div>
+          <div class="detail-item-value">Mirth Connect Certified Professional</div>
+        </div>
+        <div class="detail-item">
+          <div class="detail-item-label">Recognition</div>
+          <div class="detail-item-value">Star Award · Pat on Back · CEO/CTO Hackathon</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-label">Activity</div>
+      <div class="activity-list">
+        <div class="activity-item">
+          <div class="activity-dot green"></div>
+          <div>
+            <div class="activity-text"><strong>RM-002 closed</strong> — 13yr tenure at NextGen Healthcare</div>
+            <div class="activity-time">Feb 2026</div>
+          </div>
+        </div>
+        <div class="activity-item">
+          <div class="activity-dot blue"></div>
+          <div>
+            <div class="activity-text"><strong>Status updated</strong> → Open to Senior PM / Lead Roles</div>
+            <div class="activity-time">Mar 2026</div>
+          </div>
+        </div>
+        <div class="activity-item">
+          <div class="activity-dot"></div>
+          <div>
+            <div class="activity-text"><strong>A-CSM certification</strong> renewed — Scrum Alliance</div>
+            <div class="activity-time">Active</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-panel">
+      <div class="contact-panel-title">Assign to your team</div>
+      <div class="contact-panel-sub">Looking for a technically deep, people-first PM. Let's talk delivery.</div>
+      <a id="emailBtn" href="#" class="contact-btn">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1 3A1 1 0 012 2h9a1 1 0 011 1v7a1 1 0 01-1 1H2a1 1 0 01-1-1V3zm1 0l4.5 3.5L11 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        rushalmak@gmail.com
+      </a>
+      <a href="tel:9019197711" class="contact-btn">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M4 2a1 1 0 00-1 .9L2.5 5C2.2 6.7 4 9 6.5 10.5c1.5.9 3 .6 3.6 0l.9-1a1 1 0 000-1.3L10 7a1 1 0 00-1.3 0l-.5.4C7.7 7 7 6.2 6.5 5.5l.4-.5a1 1 0 000-1.3L5.8 2.5A1 1 0 005 2H4z" stroke="currentColor" stroke-width="1.1"/></svg>
+        +91 9019 197 711
+      </a>
+      <a href="javascript:window.print()" class="contact-btn">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M3.5 4.5V2h6v2.5M3.5 9.5H2V5.5h9v4h-1.5M3.5 8h6v3h-6V8z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+        Export as PDF
+      </a>
+    </div>
+
+  </aside>
+</div>
+
+<script>
+// Email
+(function(){
+  var u='rushalmak', d='gmail.com';
+  var el=document.getElementById('emailBtn');
+  if(el) el.href='mailto:'+u+'\u0040'+d;
+}());
+
+// Toggle task expand
+function toggleTask(id, row) {
+  var body  = document.getElementById(id);
+  var label = document.getElementById(id+'-label');
+  var isOpen = body.classList.contains('open');
+  body.classList.toggle('open');
+  row.classList.toggle('expanded');
+  label.textContent = isOpen ? '▸ Expand' : '▾ Collapse';
+}
+</script>
+</body>
+</html>

@@ -80,6 +80,19 @@ nav {
   transition: color var(--t);
 }
 .nav-links a:hover { color: var(--ink); }
+
+/* View Switch Button */
+.view-switch {
+  display: flex !important; align-items: center; gap: 7px;
+  padding: 6px 14px; border-radius: 980px;
+  background: var(--surface-2) !important; border: 1px solid var(--border) !important;
+  color: var(--ink-2) !important; font-size: 0.7rem !important; font-weight: 600 !important;
+  text-transform: uppercase; letter-spacing: 0.05em;
+  text-decoration: none; transition: all 0.2s;
+  margin-left: 10px;
+}
+.view-switch:hover { background: var(--border) !important; border-color: var(--ink-3) !important; transform: translateY(-1px); }
+.view-switch svg { opacity: 0.7; }
 .nav-cta {
   display: inline-flex !important; align-items: center; gap: 7px;
   padding: 7px 15px; border-radius: 980px;
@@ -469,6 +482,8 @@ h1 {
 .contact-link.secondary:hover { color: var(--ink); border-color: var(--ink-3); background: var(--surface-2); }
 .contact-link.teams { background: var(--teams-dim); border: 1px solid rgba(75,78,171,0.3); color: var(--teams); }
 .contact-link.teams:hover { background: rgba(75,78,171,0.16); border-color: rgba(75,78,171,0.45); transform: translateY(-1px); }
+.contact-link.whatsapp { background: rgba(37,211,102,0.1); border: 1px solid rgba(37,211,102,0.3); color: #25D366; }
+.contact-link.whatsapp:hover { background: rgba(37,211,102,0.18); border-color: rgba(37,211,102,0.5); transform: translateY(-1px); }
 .contact-link.linkedin { background: rgba(10,102,194,0.08); border: 1px solid rgba(10,102,194,0.25); color: #0A66C2; }
 .contact-link.linkedin:hover { background: rgba(10,102,194,0.15); border-color: rgba(10,102,194,0.4); transform: translateY(-1px); }
 
@@ -539,6 +554,10 @@ footer { border-top: 1px solid var(--border); padding: 24px; text-align: center;
     <li><a href="#experience">Experience</a></li>
     <li><a href="#impact">Impact</a></li>
     <li><a href="#education">Education</a></li>
+    <li><a href="JiraSPA.html" class="view-switch">
+      <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M14 2H2C1.45 2 1 2.45 1 3V13C1 13.55 1.45 14 2 14H14C14.55 14 15 13.55 15 13V3C15 2.45 14.55 2 14 2ZM14 3V13H2V3H14ZM3 4H5V12H3V4ZM6 4H10V12H6V4ZM11 4H13V12H11V4Z" fill="currentColor"/></svg>
+      Jira View
+    </a></li>
     <li><a href="#contact" class="nav-cta">
       <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
       Let's Talk
@@ -924,6 +943,10 @@ footer { border-top: 1px solid var(--border); padding: 24px; text-align: center;
         <a id="teamsLink" href="https://teams.microsoft.com/l/chat/0/0?users=rushaal@outlook.com" target="_blank" rel="noopener" class="contact-link teams">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10.5 5a2 2 0 100-4 2 2 0 000 4z" fill="currentColor" opacity=".7"/><path d="M13.5 6h-1.586A2.5 2.5 0 0110 10H8v1.5A1.5 1.5 0 009.5 13h4A1.5 1.5 0 0015 11.5v-4A1.5 1.5 0 0013.5 6z" fill="currentColor" opacity=".7"/><path d="M6 6.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" fill="currentColor"/><path d="M9.5 8A1.5 1.5 0 0111 9.5v2A1.5 1.5 0 019.5 13h-7A1.5 1.5 0 011 11.5v-2A1.5 1.5 0 012.5 8h7z" fill="currentColor"/></svg>
           Chat on Teams
+        </a>
+        <a href="https://wa.me/919019197711" target="_blank" rel="noopener" class="contact-link whatsapp">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="currentColor"/></svg>
+          WhatsApp
         </a>
         <a href="https://www.linkedin.com/in/rushal-maksane-244710161/" target="_blank" rel="noopener" class="contact-link linkedin">
           <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3.5 2a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM.5 5h2.5v8.5H.5V5zm5 0h2.4v1.16h.03A2.63 2.63 0 0110.3 4.75c2.5 0 2.97 1.65 2.97 3.8v4.95h-2.5V9.14c0-1.02-.02-2.33-1.42-2.33-1.42 0-1.64 1.11-1.64 2.26v4.43H5.5V5z" fill="currentColor"/></svg>
