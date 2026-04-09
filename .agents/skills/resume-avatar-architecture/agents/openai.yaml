@@ -1,0 +1,4 @@
+interface:
+  display_name: "Resume Avatar Architecture"
+  short_description: "Architecture for resume AI avatars"
+  default_prompt: "Use $resume-avatar-architecture to design a grounded chatbot or talking avatar for this resume site."

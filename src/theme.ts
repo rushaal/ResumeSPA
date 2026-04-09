@@ -1,0 +1,15 @@
+export const theme = {
+  bg: "#0A0A0F",
+  surface: "#13131A",
+  surface2: "#1C1C26",
+  border: "#2A2A38",
+  ink: "#F5F5F7",
+  ink2: "#AEAEB2",
+  ink3: "#6E6E73",
+  accent: "#0A84FF",
+  accentGlow: "rgba(10,132,255,0.15)",
+  amber: "#FF9F0A",
+  green: "#30D158",
+  fontDisplay: "'Georgia', serif",
+  fontBody: "-apple-system, 'Helvetica Neue', Arial, sans-serif",
+};

@@ -1,0 +1,36 @@
+{
+  "name": "resumespa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "video": "remotion studio",
+    "render": "remotion render ResumeVideo out/resume.mp4",
+    "build-video": "remotion render ResumeVideo out/resume.mp4 --codec=h264"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github-rushaal:rushaal/ResumeSPA.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@remotion/cli": "^4.0.441",
+    "@remotion/media": "4.0.441",
+    "dotenv": "^17.4.1",
+    "express": "^5.2.1",
+    "openai": "^6.34.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "remotion": "^4.0.441"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "typescript": "^6.0.2"
+  }
+}
