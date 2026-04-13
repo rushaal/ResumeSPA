@@ -804,8 +804,8 @@ footer { border-top: 1px solid var(--border); padding: 24px; text-align: center;
   <ul class="nav-links" id="navLinks">
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
-    <li><a href="#experience">Experience</a></li>
     <li><a href="#impact">Impact</a></li>
+    <li><a href="#experience">Experience</a></li>
     <li><a href="#education">Education</a></li>
     <li><a href="JiraSPA.html" class="view-switch">
       <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M14 2H2C1.45 2 1 2.45 1 3V13C1 13.55 1.45 14 2 14H14C14.55 14 15 13.55 15 13V3C15 2.45 14.55 2 14 2ZM14 3V13H2V3H14ZM3 4H5V12H3V4ZM6 4H10V12H6V4ZM11 4H13V12H11V4Z" fill="currentColor"/></svg>
@@ -845,6 +845,10 @@ footer { border-top: 1px solid var(--border); padding: 24px; text-align: center;
           <a href="tel:9019197711" class="btn-secondary">
             <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M5.07 2.29a1 1 0 00-1.41.05L2.22 3.83C1.47 4.71 1.5 6 2.27 6.93c.77.92 2 2.16 3.5 3.5.92.77 2.21.8 3.1.05l1.5-1.44a1 1 0 00.05-1.41L9 6.2a1 1 0 00-1.41.05L7 6.85C6.5 6.39 5.92 5.79 5.43 5.2L6.04 4.6a1 1 0 00.05-1.41L5.07 2.3z" stroke="currentColor" stroke-width="1.2"/></svg>
             +91 9019 197 711
+          </a>
+          <a href="Rushal%20Maksane.pdf" download="Rushal_Maksane_Resume.pdf" class="btn-secondary">
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M7.5 10.5L3.5 6.5h3v-6h2v6h3l-4 4zM1 13.5v-3h1v3h11v-3h1v3A1.5 1.5 0 0112.5 15h-10A1.5 1.5 0 011 13.5z" fill="currentColor"/></svg>
+            Download Resume
           </a>
         </div>
         <div class="hero-stats">
@@ -1026,6 +1030,79 @@ footer { border-top: 1px solid var(--border); padding: 24px; text-align: center;
 
 <div class="divider"></div>
 
+<!-- IMPACT -->
+<section id="impact">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Measured Impact</div>
+      <h2 class="section-title">Results, <em>not responsibilities</em></h2>
+    </div>
+    <div class="impact-grid" id="impactGrid">
+      <div class="impact-card active" onclick="toggleAchievements()">
+        <div class="impact-number">80<span class="impact-accent">%</span></div>
+        <div class="impact-desc">CCDA performance improvement through architecture-level redesign and query optimisation</div>
+      </div>
+      <div class="impact-card active" onclick="toggleAchievements()">
+        <div class="impact-number">12<span class="impact-accent">+</span></div>
+        <div class="impact-desc">Years of sustained delivery at a single high-complexity healthcare product company</div>
+      </div>
+      <div class="impact-card active" onclick="toggleAchievements()">
+        <div class="impact-number">10<span class="impact-accent">+</span></div>
+        <div class="impact-desc">Engineers led concurrently across distributed USA-India onshore-offshore teams</div>
+      </div>
+      <div class="impact-card active" onclick="toggleAchievements()">
+        <div class="impact-number">0<span class="impact-accent">&#8594;1</span></div>
+        <div class="impact-desc">Full HL7 stack migrated from paid vendor to open-source, eliminating licensing dependency</div>
+      </div>
+      <div class="impact-card active" onclick="toggleAchievements()" style="grid-column: 1 / -1; text-align: center;">
+        <div class="impact-number">More<span class="impact-accent">+</span></div>
+        <div class="impact-desc">Click here or contact me to view additional detailed achievements, awards, and recognitions.</div>
+      </div>
+    </div>
+    <div class="impact-hint hidden" id="impactHint">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v12M7 13l-4-4M7 13l4-4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Click any card to see key skills and highlights
+    </div>
+    <div class="achievements-panel open" id="achievementsPanel">
+      <div class="achievements-panel-inner">
+        <div class="ap-header">
+          <div class="ap-title">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1 13l5-5 3 3 5-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Key Skills &amp; Highlights
+          </div>
+          <button class="ap-close" onclick="toggleAchievements()" aria-label="Close">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 2l10 10M12 2L2 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </button>
+        </div>
+        <div class="ap-grid ap-grid--legacy">
+          <div class="ap-item"><span class="ap-dot"></span><div><strong>Led 10+ member distributed team</strong> across USA &amp; India — onshore-offshore synchronisation and end-to-end programme accountability.</div></div>
+          <div class="ap-item"><span class="ap-dot"></span><div><strong>80% CCDA generation performance gain</strong> via targeted architectural redesign and database query optimisation.</div></div>
+          <div class="ap-item"><span class="ap-dot"></span><div><strong>Expert in U.S. healthcare interoperability</strong> — HL7, FHIR, CCDA, ECR, XDS/XDR/XDM, SMART on FHIR; Mirth Connect Certified.</div></div>
+          <div class="ap-item"><span class="ap-dot"></span><div><strong>Migrated Symphonia (paid) &rarr; NHapi (open-source)</strong> — full HL7 parsing integrity maintained, licensing costs eliminated.</div></div>
+          <div class="ap-item"><span class="ap-dot"></span><div><strong>Multiple new feature proposals</strong> and architectural improvements adopted into product across releases.</div></div>
+          <div class="ap-item"><span class="ap-dot"></span><div><strong>Primary contact for client calls &amp; critical production incidents</strong> — resolved high-severity issues under pressure with minimal business disruption.</div></div>
+          <div class="ap-item"><span class="ap-dot"></span><div><strong>Drove architectural improvement initiatives</strong> — CI/CD pipelines, code review guidelines, production support protocols.</div></div>
+          <div class="ap-item"><span class="ap-dot"></span><div><strong>Star Award, Pat on Back &amp; multiple Spot Awards</strong> — sustained recognition for delivery excellence over 13 years.</div></div>
+          <div class="ap-item"><span class="ap-dot"></span><div><strong>Hackathon idea appreciated by CEO &amp; CTO</strong> — engineering innovation aligned directly with business strategy.</div></div>
+        </div>
+        <div class="ap-grid">
+          <div class="ap-item"><span class="ap-dot"></span><div><strong>19+ years in software engineering</strong> with a blend of hands-on architecture, delivery ownership, and stakeholder management.</div></div>
+          <div class="ap-item"><span class="ap-dot"></span><div><strong>12+ years in U.S. healthcare IT</strong> focused on interoperability-heavy products where compliance, domain accuracy, and stability matter.</div></div>
+          <div class="ap-item"><span class="ap-dot"></span><div><strong>Led distributed teams of 10+ engineers</strong> across India and the USA with accountability for planning, execution, and delivery quality.</div></div>
+          <div class="ap-item"><span class="ap-dot"></span><div><strong>Deep interoperability expertise</strong> across HL7 v2/v3, FHIR, CCDA, ECR, XDS/XDR/XDM, SMART on FHIR, and Mirth Connect.</div></div>
+          <div class="ap-item"><span class="ap-dot"></span><div><strong>Strong Microsoft engineering stack</strong> across C#, .NET, ASP.NET MVC, Web API, SQL Server, WPF, CI/CD, and TDD/BDD practices.</div></div>
+          <div class="ap-item"><span class="ap-dot"></span><div><strong>80% improvement in CCDA generation performance</strong> achieved through targeted architecture changes and database query optimization.</div></div>
+          <div class="ap-item"><span class="ap-dot"></span><div><strong>Reduced vendor dependency and licensing cost</strong> by leading the Symphonia to NHapi migration without compromising HL7 parsing integrity.</div></div>
+          <div class="ap-item"><span class="ap-dot"></span><div><strong>Trusted during critical production situations</strong> as a client-facing technical lead for incident handling, recovery coordination, and escalation management.</div></div>
+          <div class="ap-item"><span class="ap-dot"></span><div><strong>Recognized for sustained delivery and innovation</strong> through Star Award, Pat on Back, multiple Spot Awards, and CEO/CTO appreciation.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
 <!-- EXPERIENCE -->
 <section id="experience">
   <div class="container">
@@ -1083,75 +1160,6 @@ footer { border-top: 1px solid var(--border); padding: 24px; text-align: center;
         </div>
       </div>
 
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- IMPACT -->
-<section id="impact">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-eyebrow">Measured Impact</div>
-      <h2 class="section-title">Results, <em>not responsibilities</em></h2>
-    </div>
-    <div class="impact-grid" id="impactGrid">
-      <div class="impact-card active" onclick="toggleAchievements()">
-        <div class="impact-number">80<span class="impact-accent">%</span></div>
-        <div class="impact-desc">CCDA performance improvement through architecture-level redesign and query optimisation</div>
-      </div>
-      <div class="impact-card active" onclick="toggleAchievements()">
-        <div class="impact-number">12<span class="impact-accent">+</span></div>
-        <div class="impact-desc">Years of sustained delivery at a single high-complexity healthcare product company</div>
-      </div>
-      <div class="impact-card active" onclick="toggleAchievements()">
-        <div class="impact-number">10<span class="impact-accent">+</span></div>
-        <div class="impact-desc">Engineers led concurrently across distributed USA-India onshore-offshore teams</div>
-      </div>
-      <div class="impact-card active" onclick="toggleAchievements()">
-        <div class="impact-number">0<span class="impact-accent">&#8594;1</span></div>
-        <div class="impact-desc">Full HL7 stack migrated from paid vendor to open-source, eliminating licensing dependency</div>
-      </div>
-    </div>
-    <div class="impact-hint hidden" id="impactHint">
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v12M7 13l-4-4M7 13l4-4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      Click any card to see key skills and highlights
-    </div>
-    <div class="achievements-panel open" id="achievementsPanel">
-      <div class="achievements-panel-inner">
-        <div class="ap-header">
-          <div class="ap-title">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1 13l5-5 3 3 5-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Key Skills &amp; Highlights
-          </div>
-          <button class="ap-close" onclick="toggleAchievements()" aria-label="Close">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 2l10 10M12 2L2 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-          </button>
-        </div>
-        <div class="ap-grid ap-grid--legacy">
-          <div class="ap-item"><span class="ap-dot"></span><div><strong>Led 10+ member distributed team</strong> across USA &amp; India — onshore-offshore synchronisation and end-to-end programme accountability.</div></div>
-          <div class="ap-item"><span class="ap-dot"></span><div><strong>80% CCDA generation performance gain</strong> via targeted architectural redesign and database query optimisation.</div></div>
-          <div class="ap-item"><span class="ap-dot"></span><div><strong>Expert in U.S. healthcare interoperability</strong> — HL7, FHIR, CCDA, ECR, XDS/XDR/XDM, SMART on FHIR; Mirth Connect Certified.</div></div>
-          <div class="ap-item"><span class="ap-dot"></span><div><strong>Migrated Symphonia (paid) &rarr; NHapi (open-source)</strong> — full HL7 parsing integrity maintained, licensing costs eliminated.</div></div>
-          <div class="ap-item"><span class="ap-dot"></span><div><strong>Multiple new feature proposals</strong> and architectural improvements adopted into product across releases.</div></div>
-          <div class="ap-item"><span class="ap-dot"></span><div><strong>Primary contact for client calls &amp; critical production incidents</strong> — resolved high-severity issues under pressure with minimal business disruption.</div></div>
-          <div class="ap-item"><span class="ap-dot"></span><div><strong>Drove architectural improvement initiatives</strong> — CI/CD pipelines, code review guidelines, production support protocols.</div></div>
-          <div class="ap-item"><span class="ap-dot"></span><div><strong>Star Award, Pat on Back &amp; multiple Spot Awards</strong> — sustained recognition for delivery excellence over 13 years.</div></div>
-          <div class="ap-item"><span class="ap-dot"></span><div><strong>Hackathon idea appreciated by CEO &amp; CTO</strong> — engineering innovation aligned directly with business strategy.</div></div>
-        </div>
-        <div class="ap-grid">
-          <div class="ap-item"><span class="ap-dot"></span><div><strong>19+ years in software engineering</strong> with a blend of hands-on architecture, delivery ownership, and stakeholder management.</div></div>
-          <div class="ap-item"><span class="ap-dot"></span><div><strong>12+ years in U.S. healthcare IT</strong> focused on interoperability-heavy products where compliance, domain accuracy, and stability matter.</div></div>
-          <div class="ap-item"><span class="ap-dot"></span><div><strong>Led distributed teams of 10+ engineers</strong> across India and the USA with accountability for planning, execution, and delivery quality.</div></div>
-          <div class="ap-item"><span class="ap-dot"></span><div><strong>Deep interoperability expertise</strong> across HL7 v2/v3, FHIR, CCDA, ECR, XDS/XDR/XDM, SMART on FHIR, and Mirth Connect.</div></div>
-          <div class="ap-item"><span class="ap-dot"></span><div><strong>Strong Microsoft engineering stack</strong> across C#, .NET, ASP.NET MVC, Web API, SQL Server, WPF, CI/CD, and TDD/BDD practices.</div></div>
-          <div class="ap-item"><span class="ap-dot"></span><div><strong>80% improvement in CCDA generation performance</strong> achieved through targeted architecture changes and database query optimization.</div></div>
-          <div class="ap-item"><span class="ap-dot"></span><div><strong>Reduced vendor dependency and licensing cost</strong> by leading the Symphonia to NHapi migration without compromising HL7 parsing integrity.</div></div>
-          <div class="ap-item"><span class="ap-dot"></span><div><strong>Trusted during critical production situations</strong> as a client-facing technical lead for incident handling, recovery coordination, and escalation management.</div></div>
-          <div class="ap-item"><span class="ap-dot"></span><div><strong>Recognized for sustained delivery and innovation</strong> through Star Award, Pat on Back, multiple Spot Awards, and CEO/CTO appreciation.</div></div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -1237,6 +1245,10 @@ footer { border-top: 1px solid var(--border); padding: 24px; text-align: center;
         <a href="javascript:window.print()" class="contact-link secondary">
           <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M4 5V2h7v3M4 11H2V6h11v5h-2M4 9h7v4H4V9z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
           Save as PDF
+        </a>
+        <a href="Rushal%20Maksane.pdf" download="Rushal_Maksane_Resume.pdf" class="contact-link secondary">
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M7.5 10.5L3.5 6.5h3v-6h2v6h3l-4 4zM1 13.5v-3h1v3h11v-3h1v3A1.5 1.5 0 0112.5 15h-10A1.5 1.5 0 011 13.5z" fill="currentColor"/></svg>
+          Download PDF Document
         </a>
       </div>
     </div>
